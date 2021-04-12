@@ -1,0 +1,45 @@
+<script>
+    var cart = [
+        {
+            name: "Виски Ballantine’s Finest 0.7 л",
+            price: 1240,
+            quantity: 1
+        },
+        {
+            name: "Ром Ron Barcelo Imperial 0.7 л",
+            price: 1399,
+            quantity: 1
+        },
+        {
+            name: "Вино La Cave Shiraz 0.75 л",
+            price: 1699,
+            quantity: 2
+        },
+        {
+            name: "Стакан классик бар Серие для виски XL 415мл",
+            price: 230,
+            quantity: 2
+        },
+        {
+            name: "Бокал Spiegelau Willsberger Anniversary Burgundy",
+            price: 301,
+            quantity: 4
+        },
+        {
+            name: "Штопор профессиональный, Apollo Sommelier, 62г",
+            price: 199,
+            quantity: 1
+        }
+    ];
+    
+    function countBasketPrice(obj) {
+        var sum = 0;
+        for(item of obj) {
+            sum +=  item.quantity * item.price;
+        }
+
+        return sum;
+    }
+
+    document.write("Стоимость карзины: " + countBasketPrice(cart).toFixed(2) + " руб.");
+</script>
