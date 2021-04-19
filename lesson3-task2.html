@@ -1,0 +1,71 @@
+<script>
+    var cart = [
+        {
+            name: "Виски Ballantine’s Finest 0.7 л",
+            price: 1240,
+            quantity: 1
+        },
+        {
+            name: "Ром Ron Barcelo Imperial 0.7 л",
+            price: 1399,
+            quantity: 1
+        },
+        {
+            name: "Вино La Cave Shiraz 0.75 л",
+            price: 1699,
+            quantity: 2
+        },
+        {
+            name: "Стакан классик бар Серие для виски XL 415мл",
+            price: 230,
+            quantity: 2
+        },
+        {
+            name: "Бокал Spiegelau Willsberger Anniversary Burgundy",
+            price: 301,
+            quantity: 4
+        },
+        {
+            name: "Штопор профессиональный, Apollo Sommelier, 62г",
+            price: 199,
+            quantity: 1
+        }
+    ];
+
+    var today = new Date().toLocaleDateString("ru");
+
+    document.write("<div style='margin: 0 auto; padding: 24px; width: 400px; border: 1px dashed #ccc'>");
+    document.write("<h4 style='text-align: center; text-transform: uppercase'>Алкомаркет</h4>");
+    document.write("<hr>");
+    document.write("<p><b>Приход: " + today + "</b><br>");
+    document.write("Кассовый чек: №123<br>");
+    document.write("Смена: №321<br>");
+    document.write("Кассир: Иванов Иван Иванович</p>");
+    document.write("<hr>");
+
+    var nds, sum = 0, sumNds = 0, sumPos, sumNdsPos;
+
+    for(item of cart) {
+        nds = item.price * 0.2;
+        sumPos = item.quantity * (item.price - nds);
+        sumNdsPos = item.quantity * nds;
+
+        document.write("<p><b>" + item.name + "</b></p>");
+        document.write("<p style='text-align: right; font-size: 14px'>" + item.quantity + " x " + (item.price - nds).toFixed(2) + " = " + sumPos.toFixed(2) + "</br>");
+        document.write("НДС: " + sumNdsPos.toFixed(2) + "</p>");
+
+        sum += sumPos;
+        sumNds += sumNdsPos;
+    }
+
+    document.write("<hr>");
+
+    document.write("<p style='text-align: right; text-transform: uppercase'>Оборот без НДС: " + sum.toFixed(2) + "</br>");
+    document.write("НДС: " + sumNds.toFixed(2) + "</p>");
+
+    document.write("<hr>");
+    
+    document.write("<p style='text-align: center; text-transform: uppercase'><b>Итого: " + (sum + sumNds).toFixed(2) + "</b></p>");
+
+    document.write("</div>");
+</script>

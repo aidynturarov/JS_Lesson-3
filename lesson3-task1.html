@@ -1,0 +1,35 @@
+<script>
+    var n = 0, limit = 100; primeNumber = [];
+
+    while(n <= limit) {
+        if(n < 2 || n != 2 && !(n % 2)) { // пропускаем 0, 1 и четные числа кроме "2"
+            n++;
+            continue;
+        } else {
+            if(n == 2) { // "2" и так простое число
+                primeNumber.push(n);
+                n++;
+                continue;
+            } else {
+                var start = 1, count = 0;
+                while(start <= n) {
+                    if(!(n % start)) { // выбираем число если нет остатка
+                        count++;
+                        if(count > 2) { // если число делителя больше двух прирываем цикл, так как число уже не относится простому
+                            count++;
+                            break;
+                        }
+                    }
+                    start++;
+                }
+            }
+            // count - количество натуральных делителя
+            if(count == 2) {
+                primeNumber.push(n);
+            }
+        }
+        n++;
+    }
+
+    document.write("<pre>" + primeNumber + "</pre>");
+</script>
